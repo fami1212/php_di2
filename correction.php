@@ -75,20 +75,42 @@
 
 
 
-// $fruits=["Pomme","Banane","Mangue","Ananas","Kaki"];
+$fruits=["Pomme","Banane","Mangue","Ananas","Kaki"];
 
-// echo "<ul>";
+echo "<ul>";
 
-// foreach ($fruits as $f) {
+foreach ($fruits as $f) {
 
 
-//     echo "<li>".   "".$f.""    ."</li>";
+    echo "<li>".   "".$f.""    ."</li>";
     
-// }
+}
 
-// echo "</ul>"
+echo "</ul>";
 
 
+$fruits= [
+
+    [
+        "nom" => "Pomme",
+        "qte" => 13
+    ],
+    [
+        "nom" => "Banane",
+        "qte" => 20
+    ],
+    [
+        "nom" => "Mangue",
+        "qte" => 26
+    ]
+
+];
+
+
+foreach ($fruits as $f) {
+   echo "{$f["nom"]}";
+   echo " {$f["qte"]}";
+}
 
 
 

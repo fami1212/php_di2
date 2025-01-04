@@ -1,182 +1,134 @@
-
-
 <?php
-// <!-- Exercice 5 -->
-// $somme = 0;
-// for ($i = 1; $i <= 10; $i++) {
-//     $somme += $i;
-// }
-// echo "La somme des nombres de 1 à 10 est : " . $somme;
-
-
-// exercice 6
-
-// $i = 0;
-// while ($i <= 20) {
-//     echo $i . " ";
-//     $i++;
-// }
-
-
-// Exercice 7 : Liste des fruits
-
-// $fruits = ["Pomme", "Banane", "Orange", "Mangue", "Raisin"];
-
-// echo "<ul>";
-// for ($i = 0; $i < count($fruits); $i++) {
-//     echo "<li>" . $fruits[$i] . "</li>";
-// }
-// echo "</ul>";
-
-
-// Exercice 8 : Calcul des notes et moyenne
-
-// $notes = [15, 12, 18, 9, 14,13];
-// $somme = 0;
-
-// foreach($notes as $n){
-//     $somme = $somme + $n;
-// }
-
-// $moyenne = $somme / count($notes);
-// echo "La moyenne des notes est : " . $moyenne;
-
-
-// Exercice 9 : Informations d'un étudiant
-
-// $etudiant = [
-//     "nom" => "Dupont",
-//     "prenom" => "Jean",
-//     "age" => 20
-// ];
-
-// foreach ($etudiant as $cle => $valeur) {
-//     echo ucfirst($cle) . " : " . $valeur . "<br>";
-
-// }
-
-
-// Un tableau associatif est créé, contenant des paires clé-valeur :
-//     "nom" => "Dupont"
-//     "prenom" => "Jean"
-//     "age" => 20
-//     Chaque clé (par exemple, "nom") représente un attribut de 
-//     l'étudiant, et la valeur correspondante (par exemple, "Dupont") 
-//     est la donnée de cet attribut.
-
-// Dans chaque itération, on affiche la clé et la valeur de façon lisible :
-// ucfirst($cle) : La fonction ucfirst() met en majuscule la première lettre de la 
-// clé pour une meilleure lisibilité
-//  (par exemple, "nom" devient "Nom").
-// . " : " . $valeur . "<br>" : La clé et la valeur sont concaténées 
-// avec un symbole ":" et un saut de ligne HTML (<br>), pour un affichage formaté.
-
-
-// exercice 10 
-
-// $panier = [
-//     "Ordinateur" => 1500,
-//     "Tablette" => 8000,
-//     "Smartphone" => 500,
-//     "Casque" => 100
-// ];
-
-// $prixTotal=0;
-
-
-// foreach ($panier as $produit => $prix) {
-//     $prixTotal = $prixTotal + $prix; 
-// }
-
-// echo " le prix total des article est $prixTotal";
-
-
-
-
-
-
-
-
-// $prix_total = 0;
-
-// foreach ($panier as $article => $prix) {
-//     $prix_total += $prix;
-// }
-
-// echo "Le prix total des articles dans le panier est : " . $prix_total;
-
-
-// Exercice 11:
-// Exercice : (informations sur les employés)
-
-
-// $employes = [
-//     [
-//         "nom" => "Dupont",
-//         "poste" => "Développeur",
-//         "salaire" => 3000
-//     ],
-//     [
-//         "nom" => "Martin",
-//         "poste" => "Designer",
-//         "salaire" => 2800
-//     ],
-//     [
-//         "nom" => "Leroy",
-//         "poste" => "Chef de projet",
-//         "salaire" => 3500
-//     ]
-// ];
-
-// // Afficher les informations du deuxième employé
-// echo "Nom : " . $employes[2]["nom"] . "<br>";
-// echo "Poste : " . $employes[2]["poste"] . "<br>";
-// echo "Salaire : " . $employes[2]["salaire"] . "<br>";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Exercice 12 : Gestion de produits
-
-
-$produits = [
-    [
-        "nom" => "Ordinateur",
-        "prix" => 1500,
-        "quantite" => 10
-    ],
-    [
-        "nom" => "Tablette",
-        "prix" => 800,
-        "quantite" => 15
-    ],
-    [
-        "nom" => "Smartphone",
-        "prix" => 500,
-        "quantite" => 25
-    ]
-   
-
+/************************************
+ * 1) Données de départ
+ ************************************/
+$ventes = [
+    ["region" => "Casablanca", "mois" => 1, "chiffreAffaires" => 10000],
+    ["region" => "Casablanca", "mois" => 2, "chiffreAffaires" => 15000],
+    ["region" => "Rabat",  "mois" => 1, "chiffreAffaires" => 8000],
+    ["region" => "Rabat",  "mois" => 2, "chiffreAffaires" => 9000],
+    ["region" => "Marrakech",  "mois" => 4, "chiffreAffaires" => 14000],
+    ["region" => "Marrakech",  "mois" => 5, "chiffreAffaires" => 7000],
+    ["region" => "Marrakech",  "mois" => 3, "chiffreAffaires" => 6000],
+    ["region" => "Marrakech",  "mois" => 3, "chiffreAffaires" => 1000],
+    ["region" => "Meknes",  "mois" => 3, "chiffreAffaires" => 20000],
+    ["region" => "Meknes",  "mois" => 3, "chiffreAffaires" => 18000],
+    ["region" => "Kenitra",  "mois" => 3, "chiffreAffaires" => 13000],
+    ["region" => "Oujda",  "mois" => 3, "chiffreAffaires" => 14000],
+    // ["region" => " ",  "mois" => 3, "chiffreAffaires" => 0],
 ];
 
-foreach ($produits as $article) {
-    echo "Produit : " . $article["nom"] . "<br>";
-    echo "Prix unitaire : " . $article["prix"] . "<br>";
-    echo "Quantité : " . $article["quantite"] . "<br>";
-    $valeur_article = $article["prix"] * $article["quantite"];
 
-    echo "Valeur totale du stock : " . $valeur_article . "<br><br>";
+
+
+/************************************
+ * 2) Fonction calculerCAParRegion
+ *    => renvoie un tableau associatif
+ *       [ 'Nord' => somme, 'Sud' => somme, ... ]
+ ************************************/
+function calculerCAParRegion($ventes)
+{
+    $result = [];
+    
+    // Parcours de toutes les entrées du tableau
+    foreach ($ventes as $vente) {
+        $region = $vente['region'];
+        $chiffre = $vente['chiffreAffaires'];
+        
+        if (!isset($result[$region])) {
+            $result[$region] = 0;
+        }
+        
+        // On additionne le CA
+        $result[$region] += $chiffre;
+    }
+    
+    return $result;
 }
+
+/************************************
+ * 3) Fonction calculerMoyenneCAParRegion
+ *    => renvoie un tableau associatif
+ *       [ 'Nord' => moyenne, 'Sud' => moyenne, ... ]
+ ************************************/
+function calculerMoyenneCAParRegion($ventes)
+{
+    // On va stocker deux informations :
+    //  - La somme des CA par région
+    //  - Le nombre d'entrées (mois) par région
+    $sums = [];
+    $counts = [];
+    
+    foreach ($ventes as $vente) {
+        $region = $vente['region'];
+        $chiffre = $vente['chiffreAffaires'];
+        
+        if (!isset($sums[$region])) {
+            $sums[$region] = 0;
+            $counts[$region] = 0;
+        }
+        
+        $sums[$region] += $chiffre;
+        $counts[$region] += 1;
+    }
+    
+    // On calcule la moyenne par région
+    $moyennes = [];
+    foreach ($sums as $region => $sum) {
+        $moyennes[$region] = $sum / $counts[$region];
+    }
+    
+    return $moyennes;
+}
+
+/************************************
+ * 4) Fonction afficherResumeVentes
+ *    => affiche le total et la moyenne
+ ************************************/
+function afficherResumeVentes($ventes)
+{
+    // On récupère le total par région
+    $totaux = calculerCAParRegion($ventes);
+    // On récupère la moyenne par région
+    $moyennes = calculerMoyenneCAParRegion($ventes);
+    
+    echo "<h2>Résumé des ventes par région</h2>";
+    echo "<ul>";
+    
+    // On parcourt le tableau des totaux
+    foreach ($totaux as $region => $caTotal) {
+        // On récupère la moyenne correspondante
+        $moyenne = $moyennes[$region];
+        
+        // Affichage formaté
+        echo "<li>";
+        echo "<strong>Région : </strong>$region<br>";
+        echo "Chiffre d'affaires total : " . number_format($caTotal, 2, ',', ' ') . " €<br>";
+        echo "Moyenne du CA : " . number_format($moyenne, 2, ',', ' ') . " €<br>";
+        echo "</li>";
+        echo "<hr>";
+    }
+    
+    echo "</ul>";
+}
+
+/************************************
+ * 5) Tests et affichage
+ ************************************/
+// a) Test : Calculer les totaux par région
+$caParRegion = calculerCAParRegion($ventes);
+echo "<pre>";
+echo "Totaux par région :\n";
+print_r($caParRegion);
+echo "</pre>";
+
+// b) Test : Calculer les moyennes par région
+$moyenneParRegion = calculerMoyenneCAParRegion($ventes);
+echo "<pre>";
+echo "Moyennes par région :\n";
+print_r($moyenneParRegion);
+echo "</pre>";
+
+// c) Test : Afficher le résumé
+afficherResumeVentes($ventes);
+?>
