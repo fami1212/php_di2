@@ -1,9 +1,5 @@
 <?php
 
-// Créez une classe Livre avec les propriétés :
-// titre (string)
-// auteur (string)
-// disponible (bool)
 class Livre
 {
     public $titre;
