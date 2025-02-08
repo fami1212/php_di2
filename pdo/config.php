@@ -3,23 +3,28 @@
 try {
     $pdo = new PDO("mysql:host=localhost;dbname=Omnia-school", "root", "");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "✅ Connexion réussie !";
+    echo "✅ Connexion réussie !<br>";
 } catch (PDOException $e) {
-    die("❌ Erreur : " . $e->getMessage());
+    die("❌ Erreur de connexion : " . $e->getMessage());
 }
 
+// Vérifier si le formulaire a été soumis avec des valeurs valides
+if (isset($_GET['nom'], $_GET['prenom']) && !empty(trim($_GET['nom'])) && !empty(trim($_GET['prenom']))) {
+    $nom = trim($_GET['nom']);
+    $prenom = trim($_GET['prenom']);
 
+    try {
+        // Préparer et exécuter l'insertion
+        $stmt = $pdo->prepare("INSERT INTO `etudiants`(`nom`, `prenom`) VALUES (?, ?)");
+        $stmt->execute([$nom, $prenom]);
 
-
-    $nom = $_GET['nom'];
-    $prenom = $_GET['prenom'];
-
-    // Correction : suppression des guillemets autour de ? et ajout du paramètre dans execute()
-    $stmt = $pdo->prepare("INSERT INTO `etudiants`(`nom`,`prenom`) VALUES (?,?)");
-    $stmt->execute([$nom,$prenom]);  // Passage de la valeur à execute()
-
-    // Redirection cohérente
-    header("Location: liste_etudiants.php"); // Redirection vers la liste des étudiants
-    exit();
-
+        // Redirection après insertion pour éviter une double exécution
+        header("Location: liste_etudiants.php");
+        exit();
+    } catch (PDOException $e) {
+        die("❌ Erreur lors de l'insertion : " . $e->getMessage());
+    }
+} else {
+    echo "❌ Erreur : Nom et prénom sont obligatoires !";
+}
 ?>
