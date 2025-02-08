@@ -7,7 +7,6 @@
 
 interface Forme {
     public function calculerSurface();
-    public function calculerPerimetre();
 }
 
 class Rectangle implements Forme {
@@ -20,9 +19,7 @@ class Rectangle implements Forme {
     }
 
 
-    public function calculerSurface() {
-        return $this->largeur * $this->longueur;
-    }
+
 
     public function calculerPerimetre(){
         return 2 * ($this->largeur + $this->longueur);
