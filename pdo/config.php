@@ -11,7 +11,7 @@ try {
 // Vérifier si le formulaire a été soumis avec des valeurs valides
 if (isset($_GET['nom'], $_GET['prenom']) && !empty(trim($_GET['nom'])) && !empty(trim($_GET['prenom']))) {
     $nom = trim($_GET['nom']);
-    $prenom = trim($_GET['prenom']);
+    $prenom = trim($_GET['prenom']);    
 
     try {
         // Préparer et exécuter l'insertion
